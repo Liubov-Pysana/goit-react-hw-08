@@ -1,0 +1,11 @@
+.title {
+    display: flex;
+    font-weight: 400;
+    align-items: center;
+}
+.text {
+    font-size: 18px;
+}
+.icon {
+    padding: 0;
+}

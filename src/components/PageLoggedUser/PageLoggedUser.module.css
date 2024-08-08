@@ -1,0 +1,24 @@
+.container {
+    margin-top: 10px;
+    border: 4px solid rgb(173, 202, 206);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text {
+    font-size: 18px;
+}
+.link {
+    color: black;
+}
+.link:hover {
+    color: darkslategrey;
+}
+.icon {
+    color: darkslategrey;
+    width: 300px;
+    height: 100%;
+}
+.icon:hover {
+    color: rgb(26, 32, 32);
+}

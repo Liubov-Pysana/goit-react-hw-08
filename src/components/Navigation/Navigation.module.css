@@ -1,0 +1,13 @@
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: darkslategrey;
+    font-size: 26px;
+}
+.link:hover {
+    color: rgb(26, 32, 32);
+}

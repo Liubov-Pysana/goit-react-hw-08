@@ -1,0 +1,24 @@
+.userMenu {
+    align-items: center;
+    padding: 0;
+    display: flex;
+    margin-left: auto;
+    gap: 20px;
+}
+.text {
+    font-size: 20px;
+}
+.btn {
+    /* border: 1px solid #fff; */
+    /* border-radius: 4px; */
+    background-color: #fff;
+    cursor: pointer;
+    width: 90px;
+    height: 100%;
+    padding: 2px;
+}
+.btn:hover {
+    color: #bbe7ff;
+    background-color: #161515;
+    border: 1px solid #161515;
+}
