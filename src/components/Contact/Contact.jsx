@@ -39,12 +39,12 @@ export default function Contact({ data }) {
         <div className={css.container}>
             <div>
                 <p className={css.text}>
-                    <FaUser className={css.icon} />
-                    {name}
+                    Name:
+                    {} {name}
                 </p>
-                <p className={css.text}>
-                    <FaPhoneAlt className={css.icon} />
-                    {number}
+                <p className={css.password}>
+                    Number:
+                    {} {number}
                 </p>
             </div>
             <button className={css.button} onClick={() => setIsEditing(true)}>
@@ -54,7 +54,6 @@ export default function Contact({ data }) {
                 Delete
             </button>
 
-            {/* Edit Modal */}
             {isEditing && (
                 <Modal
                     isOpen={isEditing}
@@ -85,7 +84,6 @@ export default function Contact({ data }) {
                 </Modal>
             )}
 
-            {/* Delete Modal */}
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeDeleteModal}

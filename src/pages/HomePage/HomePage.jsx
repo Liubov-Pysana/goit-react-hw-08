@@ -9,7 +9,7 @@ export default function HomePage() {
         <PageLoggedUser />
     ) : (
         <div>
-            <h1 className={css.title}>Hello World</h1>
+            <h1 className={css.title}>Hello user!</h1>
             <p className={css.text}>Here we're storing your contacts. Log in or register please.</p>
         </div>
     );

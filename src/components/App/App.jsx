@@ -14,7 +14,6 @@ const ContactsPage = lazy(() => import("../../pages/ContactsPage/ContactsPage"))
 
 export default function App() {
     const dispatch = useDispatch();
-
     const isRefreshing = useSelector(selectIsRefreshing);
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function App() {
     }, [dispatch]);
 
     return isRefreshing ? (
-        <div>Refreshing user, please wait...</div>
+        <div>Refreshing user...</div>
     ) : (
         <Layout>
             <Suspense>

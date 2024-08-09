@@ -3,12 +3,10 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://connections-api.goit.global/";
 
-// Функція для налаштування заголовка авторизації
 const setAuthHeader = (token) => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// Інтерцептор для автоматичного додавання заголовка авторизації з локального сховища
 axios.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token");

@@ -7,18 +7,19 @@
 }
 .text {
     font-size: 20px;
+    color: #084390;
 }
 .btn {
     /* border: 1px solid #fff; */
     /* border-radius: 4px; */
-    background-color: #fff;
+    background-color: #2f82ff;
     cursor: pointer;
     width: 90px;
     height: 100%;
-    padding: 2px;
+    padding: 6px;
 }
 .btn:hover {
-    color: #bbe7ff;
-    background-color: #161515;
-    border: 1px solid #161515;
+    color: #ffffff;
+    background-color: #084390;
+    border: none;
 }

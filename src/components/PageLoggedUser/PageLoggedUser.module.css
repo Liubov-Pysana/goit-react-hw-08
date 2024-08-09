@@ -9,10 +9,10 @@
     font-size: 18px;
 }
 .link {
-    color: black;
+    color: rgb(14, 47, 104);
 }
 .link:hover {
-    color: darkslategrey;
+    color: rgb(8, 11, 119);
 }
 .icon {
     color: darkslategrey;
