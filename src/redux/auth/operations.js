@@ -7,6 +7,7 @@ const setAuthHeader = (token) => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+// Interceptor to automatically add the token to requests
 axios.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token");
@@ -20,6 +21,7 @@ axios.interceptors.request.use(
     }
 );
 
+// Register new user
 export const register = createAsyncThunk("auth/register", async (newUser, thunkAPI) => {
     try {
         const response = await axios.post("/users/signup", newUser);
@@ -28,10 +30,13 @@ export const register = createAsyncThunk("auth/register", async (newUser, thunkA
         setAuthHeader(token);
         return response.data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+        // Return the actual error message from the server response
+        const message = error.response?.data?.message || error.message;
+        return thunkAPI.rejectWithValue(message);
     }
 });
 
+// Log in existing user
 export const logIn = createAsyncThunk("auth/logIn", async (creds, thunkAPI) => {
     try {
         const response = await axios.post("/users/login", creds);
@@ -40,20 +45,29 @@ export const logIn = createAsyncThunk("auth/logIn", async (creds, thunkAPI) => {
         setAuthHeader(token);
         return response.data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+        // Customize error message based on the response
+        let message = "An error occurred. Please try again.";
+        if (error.response?.status === 400) {
+            message = "Fill in the correct password";
+        }
+        return thunkAPI.rejectWithValue(message);
     }
 });
 
+// Log out user
 export const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
     try {
         await axios.post("/users/logout");
         localStorage.removeItem("token");
         setAuthHeader("");
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+        // Return the actual error message from the server response
+        const message = error.response?.data?.message || error.message;
+        return thunkAPI.rejectWithValue(message);
     }
 });
 
+// Refresh user session
 export const refreshUser = createAsyncThunk(
     "auth/refresh",
     async (_, thunkAPI) => {
@@ -70,7 +84,9 @@ export const refreshUser = createAsyncThunk(
             const response = await axios.get("/users/current");
             return response.data;
         } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
+            // Return the actual error message from the server response
+            const message = error.response?.data?.message || error.message;
+            return thunkAPI.rejectWithValue(message);
         }
     },
     {

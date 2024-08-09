@@ -23,3 +23,31 @@ li {
 .liName {
     padding: 12px;
 }
+
+/* newbutton css */
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+    width: 200px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
